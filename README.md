@@ -1,18 +1,20 @@
 # /watch
 
+> **Fork maintained by [@taeloautomates](https://github.com/taeloautomates).** Original skill by [Bradley Bonanno](https://github.com/bradautomates) — see [bradautomates/claude-video](https://github.com/bradautomates/claude-video). This fork bundles working patches for the YouTube SABR streaming changes (player_client override + optional `WATCH_COOKIES_BROWSER` cookie hook) so `/watch` continues to work on YouTube while upstream fixes land.
+
 **Give Claude the ability to watch any video.**
 
 Claude Code:
 ```
-/plugin marketplace add bradautomates/claude-video
+/plugin marketplace add taeloautomates/claude-video
 /plugin install watch@claude-video
 ```
 
-claude.ai (web): [download `watch.skill`](https://github.com/bradautomates/claude-video/releases/latest) and drop it into Settings → Capabilities → Skills.
+claude.ai (web): [download `watch.skill`](https://github.com/taeloautomates/claude-video/releases/latest) and drop it into Settings → Capabilities → Skills.
 
 Codex / generic skills:
 ```bash
-git clone https://github.com/bradautomates/claude-video.git ~/.codex/skills/watch
+git clone https://github.com/taeloautomates/claude-video.git ~/.codex/skills/watch
 ```
 
 Zero config to start — `yt-dlp` and `ffmpeg` install on first run via `brew` on macOS (Linux/Windows print exact commands). Captions cover most public videos for free. Whisper API key is only needed when a video has no captions.
@@ -71,15 +73,15 @@ When the user names a moment ("around 2:30", "the last 30 seconds", "from 0:45 t
 
 | Surface | Install |
 |---------|---------|
-| **Claude Code** | `/plugin marketplace add bradautomates/claude-video` then `/plugin install watch@claude-video` |
-| **claude.ai** (web) | [Download `watch.skill`](https://github.com/bradautomates/claude-video/releases/latest) → Settings → Capabilities → Skills → `+` |
-| **Codex** | `git clone https://github.com/bradautomates/claude-video.git ~/.codex/skills/watch` |
-| **Manual / dev** | `git clone https://github.com/bradautomates/claude-video.git ~/.claude/skills/watch` |
+| **Claude Code** | `/plugin marketplace add taeloautomates/claude-video` then `/plugin install watch@claude-video` |
+| **claude.ai** (web) | [Download `watch.skill`](https://github.com/taeloautomates/claude-video/releases/latest) → Settings → Capabilities → Skills → `+` |
+| **Codex** | `git clone https://github.com/taeloautomates/claude-video.git ~/.codex/skills/watch` |
+| **Manual / dev** | `git clone https://github.com/taeloautomates/claude-video.git ~/.claude/skills/watch` |
 
 ### Claude Code
 
 ```
-/plugin marketplace add bradautomates/claude-video
+/plugin marketplace add taeloautomates/claude-video
 /plugin install watch@claude-video
 ```
 
@@ -87,7 +89,7 @@ Update later with `/plugin update watch@claude-video`.
 
 ### claude.ai (web)
 
-1. [Download `watch.skill`](https://github.com/bradautomates/claude-video/releases/latest) from the latest release.
+1. [Download `watch.skill`](https://github.com/taeloautomates/claude-video/releases/latest) from the latest release.
 2. Go to Settings → Capabilities → Skills.
 3. Click `+` and drop the file in.
 
@@ -96,13 +98,13 @@ Enable "Code execution and file creation" under Capabilities first — the skill
 ### Codex
 
 ```bash
-git clone https://github.com/bradautomates/claude-video.git ~/.codex/skills/watch
+git clone https://github.com/taeloautomates/claude-video.git ~/.codex/skills/watch
 ```
 
 ### Manual (developer)
 
 ```bash
-git clone https://github.com/bradautomates/claude-video.git ~/.claude/skills/watch
+git clone https://github.com/taeloautomates/claude-video.git ~/.claude/skills/watch
 ```
 
 ## First run
@@ -197,4 +199,4 @@ Built on `yt-dlp`, `ffmpeg`, and Claude's multimodal `Read` tool. Whisper transc
 
 ---
 
-[github.com/bradautomates/claude-video](https://github.com/bradautomates/claude-video) · [LICENSE](LICENSE)
+[github.com/taeloautomates/claude-video](https://github.com/taeloautomates/claude-video) · [LICENSE](LICENSE)

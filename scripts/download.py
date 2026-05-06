@@ -7,6 +7,7 @@ transcribe.py can parse them without needing Whisper.
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -67,7 +68,7 @@ def download_url(url: str, out_dir: Path) -> dict:
     cmd = [
         "yt-dlp",
         "-N", "8",
-        "-f", "bv*[height<=720]+ba/b[height<=720]/bv+ba/b",
+        "-f", "18/bv*[height<=720]+ba/b[height<=720]/bv+ba/b",
         "--merge-output-format", "mp4",
         "--write-info-json",
         "--write-subs",
@@ -77,9 +78,13 @@ def download_url(url: str, out_dir: Path) -> dict:
         "--convert-subs", "vtt",
         "--no-playlist",
         "--ignore-errors",
+        "--extractor-args", "youtube:player_client=tv,web_safari,mweb",
         "-o", output_template,
-        url,
     ]
+    cookies_browser = os.environ.get("WATCH_COOKIES_BROWSER")
+    if cookies_browser:
+        cmd.extend(["--cookies-from-browser", cookies_browser])
+    cmd.append(url)
 
     # yt-dlp may exit non-zero if a subtitle variant fails (e.g. 429) even when
     # the video itself downloaded fine. Treat "video file present" as success.
